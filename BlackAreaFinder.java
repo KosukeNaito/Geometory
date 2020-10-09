@@ -18,7 +18,7 @@ public class BlackAreaFinder {
             for (int y = 0; y < img.getHeight(); y++) {
                 for (int x = 0; x < img.getWidth(); x++) {
                     Color color = new Color(img.getRGB(x, y));
-                    if (color.getRed() <= 250 && color.getGreen() <= 250 && color.getBlue() <= 250) {
+                    if (color.getRed() == 0 && color.getGreen() == 0 && color.getBlue() == 0) {
                         count++;
                     }
                 }

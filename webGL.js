@@ -111,6 +111,19 @@ function setRotate() {
     }
 }
 
+function findBlackArea() {
+    const canvas = document.querySelector('#glCanvas');
+    const ctx = canvas.getContext('2d');
+    var image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.width);
+    count = 0;
+    for (var i = 0; i < image.data.length; i += 4) {
+        if (image.data[i] == 0 && image.data[i + 1] == 0 && image.data[i + 2] == 0) {
+            count++;
+        }
+    }
+    alert(count);
+}
+
 function saveCanvas() {
     const canvas = document.getElementById('glCanvas');
     var filename = document.getElementById('filename').value;

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function calcBlackArea() {
     const canvas = document.querySelector('#canvas');
     const ctx = canvas.getContext('2d');
-    var image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.width);
+    var image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
     console.log(image.data);
 }
 
