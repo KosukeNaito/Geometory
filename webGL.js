@@ -16,7 +16,9 @@ function main() {
 function drowMovementLocus() {
     const canvas = document.querySelector("#glCanvas");
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     setRotateSeconds();
     setRevolve();
     setRotate();
@@ -44,8 +46,8 @@ function drowArc(progressSeconds, intervalSecond) {
 
     var revolveVelocity = revolve/60;      // r/s
     var rotateVelocity = rotate/60;       // r/s
-    const revolveRadius = 70;
-    const rotateRadius = 70;
+    const revolveRadius = 150;
+    const rotateRadius = 150;
     const startX = 300;
     const startY = 300;
     const roundAngle = 360;
@@ -109,3 +111,35 @@ function setRotate() {
     }
 }
 
+function saveCanvas() {
+    const canvas = document.getElementById('glCanvas');
+    var filename = document.getElementById('filename').value;
+    if (filename === '') {
+        filename = 'canvas';
+    }
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL();
+    a.download = filename + '.png';
+    a.click();
+}
+
+function countBlack() {
+    const canvas = document.querySelector("#glCanvas");
+    const ctx = canvas.getContext("2d");
+    var image = ctx.getImageData(0, 0, 300, 300);
+    var count = 0;
+    for (var y = 0; y < image.height; y++) {
+        for (var x = 0; x < image.width; x++) {
+            var i = (x + y * image.width) * 4;
+            var r = image.data[i];
+            var g = image.data[i + 1];
+            var b = image.data[i + 2];
+            
+            if (r !== 0 && g !== 0 && b !== 0) {
+                count++;
+                console.log('a');
+            } 
+        }
+    }
+    console.log(count);
+}

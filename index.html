@@ -3,10 +3,13 @@
     <script type="text/javascript" src="webGL.js"></script>
 </head>
 <body>
-    <canvas id="glCanvas" width="640" height="480"></canvas>
+    <canvas id="glCanvas" width="600" height="600"></canvas><br>
     <input type="number" placeholder="公転(r/min)" id="revolve" value="">
     <input type="number" placeholder="自転(r/min)" id="rotate" value="">
     <input type="number" placeholder="回転時間(s)" id="rotateSeconds" value="">
-    <input type="button" value="描画" onclick="main()">
+    <input type="button" value="描画" onclick="main()"><br>
+    <input type="text" placeholder="ファイル名" id="filename">
+    <input type="button" value="保存" onclick="saveCanvas()"><br>
+    <a href='area.html'>面積求めるやーつ</a>
 </body>
 </html>
